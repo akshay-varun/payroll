@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+{% block title %}Payroll:Add{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+        <div class="center-align">
+            <a class="waves-effect waves-light btn-large" href="/add_company">Add Company</a>
+        <a class="waves-effect waves-light btn-large" href="/add_admin">Add Admin</a>
+        </div>
+
+{% endblock %}
+{% block script %}
+    {{ parent() }}
+{% endblock %}

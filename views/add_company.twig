@@ -1,0 +1,28 @@
+{%  extends "base.twig" %}
+{% block title %}Payroll:Add{% endblock %}
+{% block head %}
+{{ parent() }}
+{% endblock %}
+{% block body %}
+    {{ parent() }}
+    <br>
+
+
+    </br>
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <label for="first_name">Company Name</label>
+                </div>
+            </div>
+            <a class="waves-effect waves-light btn" type="submit">ADD</a>
+        </form>
+    </div>
+
+{% endblock %}
+{% block script %}
+{{ parent() }}
+{% endblock %}
