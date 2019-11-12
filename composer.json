@@ -11,7 +11,10 @@
     "autoload": {
         "psr-4": {
             "EasyPHPApp\\": "src/classes"
-        }
+        },
+        "files": [
+            "src/includes/db.php"
+        ]
     },
     "license": "MIT",
     "authors": [

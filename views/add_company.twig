@@ -11,14 +11,14 @@
     </br>
 
     <div class="row">
-        <form class="col s12">
+        <form class="col s12" action="/add_company" method="post">
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <input placeholder="Placeholder" id="first_name" name="name" type="text" class="validate" required>
                     <label for="first_name">Company Name</label>
                 </div>
             </div>
-            <a class="waves-effect waves-light btn" type="submit">ADD</a>
+            <button class="waves-effect waves-light btn" type="submit" id="cmp_Name">ADD</button>
         </form>
     </div>
 

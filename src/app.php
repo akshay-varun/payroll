@@ -1,9 +1,14 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
+//require_once __DIR__ . "/logger.php";
 
+
+use EasyPHPApp\add_company;
 use EasyRoute\Route;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use PhpUseful\EasyHeaders;
+use PhpUseful\Functions;
 
 $router = new Route();
 
@@ -35,6 +40,29 @@ try {
     $router->addMatch('GET','/add_company',function () use($twig){
         echo $twig->render('add_company.twig');
     });
+
+    $router->addMatch('POST', '/add_company', function () {
+        global $twig;
+        $val = array();
+        $error = array();
+
+        if (isset($_POST['name'])) {
+
+            $name = Functions::escapeInput($_POST['name']);
+
+            $val['name'] = $name;
+
+                $company= new add_company();
+                $company->cmp_Name($name);
+
+
+        } else {
+            $error['general'] = "Fill all the fields.";
+        }
+        EasyHeaders::redirect('/main_add');
+
+    });
+
 
     $router->addMatch('GET','/add_admin',function () use($twig){
         echo $twig->render('add_admin.twig');
