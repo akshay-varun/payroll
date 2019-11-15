@@ -12,30 +12,32 @@
     <form class="col s12" action="/add_admin" method="post">
         <div class="row">
             <div class="input-field col s4">
-                <input placeholder="Name" id="first_name" type="text" class="validate">
+                <input placeholder="Name" id="first_name" type="text" name="Admin_Name" class="validate" required>
                 <label for="first_name">First Name</label>
             </div>
         </div>
+
         <div class="row">
             <div class="input-field col s4">
-                <input id="phone_number" type="number" class="validate">
-                <label for="phone_number">Phone Number</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s4">
-                <input id="email" type="email" class="validate">
+                <input id="email" type="email" class="validate" name="Email" required>
                 <label for="email">Email</label>
             </div>
         </div>
         <div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="Cmp_id" type="number" name="Company_ID" class="validate" required>
+                    <label for="Cmp_id">Company ID</label>
+                </div>
+            </div>
 
         <div class="row">
             <div class="input-field col s4">
-                <input id="password" type="password" class="validate">
+                <input id="password" type="password" class="validate" name="Password" required>
                 <label for="password">Password</label>
             </div>
         </div>
+
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">ADD
             <i class="material-icons right">send</i>

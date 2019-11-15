@@ -3,6 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //require_once __DIR__ . "/logger.php";
 
 
+use EasyPHPApp\add_admin;
 use EasyPHPApp\add_company;
 use EasyRoute\Route;
 use Twig\Environment;
@@ -63,10 +64,45 @@ try {
 
     });
 
-
     $router->addMatch('GET','/add_admin',function () use($twig){
         echo $twig->render('add_admin.twig');
     });
+
+    $router->addMatch('POST', '/add_admin', function ()
+    {
+        global $twig;
+        $val=array();
+        $error=array();
+
+        if(isset($_POST['Admin_Name']) && isset($_POST['Email']) && isset($_POST['Company_ID']) && isset($_POST['Password']))
+        {
+            $Admin_Name=Functions::escapeInput($_POST['Admin_Name']);
+            $Email=Functions::escapeInput($_POST['Email']);
+            $Password=Functions::escapeInput($_POST['Password']);
+            $Company_ID=Functions::escapeInput($_POST['Company_ID']);
+
+            $val['Admin_Name']=$Admin_Name;
+            $val['Email']=$Email;
+            $val['Password']=$Password;
+            $val['Company_ID']=$Company_ID;
+
+            $admin=new add_admin();
+            $admin->adminADD($Admin_Name, $Email, $Password, $Company_ID);
+
+
+            }
+        else
+        {
+            $error['general'] = "Fill all the fields.";
+        }
+        EasyHeaders::redirect('/main_add');
+    });
+
+
+
+
+
+
     $router->execute();
 
 } catch (Exception $e) {
