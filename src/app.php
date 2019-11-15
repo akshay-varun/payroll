@@ -99,7 +99,13 @@ try {
     });
 
 
+    $router->addMatch('GET', '/dashboard', function () use($twig) {
+        echo $twig->render('dashboard.twig');
+    });
 
+    $router->addMatch('GET', '/add_Employee', function () use($twig) {
+        echo $twig->render('add_Employee.twig');
+    });
 
 
 

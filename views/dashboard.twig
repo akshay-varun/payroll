@@ -1,0 +1,30 @@
+{% extends "base.twig" %}
+{% block title %}Payroll:Admin{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/admin_login">Sass</a></li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a class="active" href="/add_Employee">ADD EMPLOYEE</a></li>
+                    <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+                    <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+                    <li class="tab"><a href="#test4">Test 4</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+{% endblock %}
+{% block script %}
+    {{ parent() }}
+{% endblock %}
