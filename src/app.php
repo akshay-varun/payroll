@@ -6,6 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use EasyPHPApp\add_admin;
 use EasyPHPApp\add_company;
+use EasyPHPApp\add_Employee;
 use EasyRoute\Route;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -113,14 +114,14 @@ try {
             $val['Admin_ID'] = $Admin_ID;
             $val['Salary']=$Salary;
 
-            $employee = new add_Employee();
-            $employee->EmployeeADD($Emp_Name,$Emp_Email,$Emp_Phone,$Admin_ID,$Salary);
+          $employee = new add_Employee();
+         $employee->addEmployee($Emp_Name,$Emp_Email,$Emp_Phone,$Admin_ID,$Salary);
 
 
         } else {
             $error['general'] = "Fill all the fields.";
         }
-        EasyHeaders::redirect('/main_add');
+        EasyHeaders::redirect('/dashboard');
     });
 
 
