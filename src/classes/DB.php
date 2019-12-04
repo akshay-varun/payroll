@@ -32,4 +32,10 @@ class DB
         return self::$dbObj;
     }
 
+    public function resetConnection()
+    {
+        $this->mysqlHelper = null;
+        $this->mysqlHelper = new MySQLHelper(DB_SERVER, DB_USER, DB_PASSWORD, DB_NAME);
+    }
+
 }

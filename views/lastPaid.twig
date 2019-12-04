@@ -1,0 +1,35 @@
+{% extends "dashboard.twig" %}
+{% block title %}Payroll:LastPaid{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent()}}
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>EMPLOYEE ID</th>
+        <th>EMPLOYEE NAME</th>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {%for  emp in lastPaid %}
+        <td>{{ emp.Emp_ID }}</td>
+        <td>{{ emp.Emp_Name}}</td>
+        <td>{{ emp.Last_Txn_ID}}</td>
+        <td>{{ emp.Amount }}</td>
+    {% endfor %}
+
+</tbody>
+</table>
+{% endblock %}
+{% block script %}
+{{ parent() }}
+{% endblock %}

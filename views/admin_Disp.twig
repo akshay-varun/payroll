@@ -1,0 +1,49 @@
+{% extends "owner_dashboard.twig" %}
+{% block title %}Payroll:Company_Disp{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>Admin ID</th>
+        <th>Admin Name</th>
+        <th>Email</th>
+        <th>Company ID</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for admin in admins %}
+        <tr>
+            <td>{{ admin.Admin_ID }}</td>
+            <td>{{admin.Admin_Name }}</td>
+            <td>{{ admin.Email }}</td>
+            <td>{{ admin.Company_ID}}</td>
+
+
+            {#            <td contenteditable='true' typeof="Date" datatype="date" ></td>#}
+            {#            <td contenteditable="true" typeof="boolean" datatype="boolean"></td>#}
+            {#            <td contenteditable="true" typeof="time" datatype="int"></td>#}
+        </tr>
+    {% endfor %}
+
+
+
+    {% endblock %}
+
+    {% block script %}
+
+    {{ parent() }}
+
+
+{% endblock %}

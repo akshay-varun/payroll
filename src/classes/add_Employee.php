@@ -17,6 +17,8 @@ class add_Employee
     const ID_FIELD='Admin_ID';
     const SALARY_FIELD='Salary';
 
+
+
     private $db;
 
     public function __construct()
@@ -33,7 +35,6 @@ class add_Employee
                 array(self::NAME_FIELD, self::EMAIL_FIELD, self::NUMBER_FIELD, self::ID_FIELD, self::SALARY_FIELD),
                 'sssid',
                 $Emp_Name, $Emp_Email,$Emp_Phone,$Admin_ID,$Salary);
-
         } catch (Exception $e) {
             // TODO log the error
             error_log($e->getMessage());

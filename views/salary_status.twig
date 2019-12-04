@@ -1,0 +1,72 @@
+{% extends "dashboard.twig" %}
+{% block title %}Payroll:salary_Data{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Start Period</th>
+        <th>End Period</th>
+        <th>Salary</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for emp in details %}
+        <tr>
+            <form method="POST" action="/salary_status">
+                <td>{{ emp.Emp_ID }}</td>
+                <td>{{emp.Emp_Name}}</td>
+                <td>{{emp.Start_Period }}</td>
+                <td>{{ emp.End_Period }}</td>
+                <td>{{ emp.Amount}}</td>
+                <input type="hidden" name="emp-id2" value="{{ emp.Emp_ID}}"/>
+                <input type="hidden" name="emp-name2" value="{{ emp.Emp_Name }}">
+                <input type="hidden" name="str-date1" value="{{ emp.Start_Period }}">
+                <input type="hidden" name="txn" value="{{ emp.Txn_ID }}">
+
+                <td>
+                    <div style="padding-left: 250px">
+                        <select class="browser-default" name="status" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1" >Paid</option>
+                            <option value="0">Not Paid</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 100px">SAVE
+                    </button>
+                </td>
+            </form>
+        </tr>
+    {% endfor %}
+
+
+
+
+    {% endblock %}
+
+    {% block script %}
+
+    {{ parent() }}
+
+    <script>
+        const submitForm = (form) => {
+            form.preventDefault();
+
+        }
+    </script>
+
+{% endblock %}

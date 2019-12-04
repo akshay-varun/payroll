@@ -7,25 +7,73 @@
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
                   integrity="sha256-OweaP/Ic6rsV+lysfyS4h+LM6sRwuO3euTYfr6M124g=" crossorigin="anonymous"/>
-            <link rel="stylesheet" href="/css/style.css"/>
+            <link rel="stylesheet" href="/public/css/style.css"/>
     {% endblock %}
 </head>
 <body>
+
 {% block body %}
+    {% block navbar %}
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Payroll</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/company">Company</a></li>
+                <li><a href="/loginbtn">Company</a></li>
                 <li><a href="/admin_login">Admin</a></li>
             </ul>
         </div>
     </nav>
+
+    {% endblock %}
+
+{#    {% block footer %}#}
+
+{#        {% block footer %}#}
+{#            <footer class="page-footer">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <div class="col l6 s12">#}
+{#                            <h5 class="white-text">Oracular</h5>#}
+{#                            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer#}
+{#                                content.</p>#}
+{#                        </div>#}
+{#                        <div class="col l4 offset-l2 s12">#}
+{#                            <h5 class="white-text">Links</h5>#}
+{#                            <ul>#}
+{#                                <li><a class="grey-text text-lighten-3" href="/admin/login">Admin Login</a></li>#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="footer-copyright">#}
+{#                    <div class="container">#}
+{#                        © 2019 Copyright Oracular. All rights reserved.#}
+{#                        #}{#                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </footer>#}
+{#        {% endblock %}#}
+
+{#    <section class="hero">#}
+{#        <div class="hero-inner">#}
+{#            <h1 class="center">PAYROLL MANAGEMENT SYSTEM</h1>#}
+{#            <div class="center">#}
+{#            <a class="waves-effect waves-light btn cen" href="/loginbtn">COMPANY</a>  <pre>  </pre>#}
+
+{#            <a class="waves-effect waves-light btn" href="/admin_login">ADMIN</a>#}
+{#        </div>#}
+
+{#        </div>#}
+{#    </section>#}
+
+
+
 {% endblock %}
+
 {% block script %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-        integrity="sha256-U/cHDMTIHCeMcvehBv1xQ052bPSbJtbuiw4QA9cTKz0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+            integrity="sha256-U/cHDMTIHCeMcvehBv1xQ052bPSbJtbuiw4QA9cTKz0=" crossorigin="anonymous"></script>
 {% endblock %}
 </body>
 </html>

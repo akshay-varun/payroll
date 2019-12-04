@@ -1,0 +1,81 @@
+{% extends "dashboard.twig" %}
+{% block title %}Payroll:salary_Data{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Start Period</th>
+        <th>End Period</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for employee in employees1 %}
+        <tr>
+            <form method="POST">
+                <td>{{ employee.Emp_ID }}</td>
+                <td>{{ employee.Emp_Name }}</td>
+                <input type="hidden" name="emp-id1" value="{{ employee.Emp_ID }}"/>
+                <td>
+                    <input type="date"  name="str-date1" style="width: 250px" required>
+                </td>
+
+                <td>
+                    <input type="date" name="end-date1" style="width: 250px" required>
+                </td>
+
+
+
+{#                <td>#}
+{#                    <div class="input-field col" >#}
+{#                        <input type="number" name="salary" class="validate" >#}
+{#                        <label for="number">salary</label>#}
+{#                    </div>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <div style="padding-left: 250px">#}
+{#                        <select class="browser-default" name="select" required>#}
+{#                            <option value="" disabled selected>Choose your option</option>#}
+{#                            <option value="1" >Paid</option>#}
+{#                            <option value="0">Not Paid</option>#}
+{#                        </select>#}
+{#                    </div>#}
+{#                </td>#}
+                <td>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 100px">Compute
+                    </button>
+                </td>
+            </form>
+
+        </tr>
+    {% endfor %}
+
+
+
+
+    {% endblock %}
+
+    {% block script %}
+
+    {{ parent() }}
+
+    <script>
+        const submitForm = (form) => {
+            form.preventDefault();
+
+        }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+{% block title %}Payroll:Owner{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">payroll</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#Admin">Company</a></li>
+                <li> <a href="#Logout">LogOut</a> </li>
+                <li><a href="/">Home</a> </li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+                <li class="tab"><a class="active" href="/add_company">ADD Company</a></li>
+                <li class="tab"><a class="active" href="/add_admin">Add Admin</a></li>
+                <li class="tab"><a class="active" href="/company_Disp">Company</a></li>
+                <li class="tab"><a class="active" href="/admin_Disp">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+{% endblock %}
+{% block script %}
+    {{ parent() }}
+{% endblock %}

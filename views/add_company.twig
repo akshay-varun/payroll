@@ -1,4 +1,4 @@
-{%  extends "base.twig" %}
+{%  extends "owner_dashboard.twig" %}
 {% block title %}Payroll:Add{% endblock %}
 {% block head %}
 {{ parent() }}
@@ -19,14 +19,14 @@
             <div class="card">
                 <div class="card-content">
                     <div class="row">
-                        <span class="card-title">EMPLOYEE</span>
+                        <span class="card-title"><COMAPANY></COMAPANY></span>
             <div class="row">
                 <div class="input-field col s6">
                     <input placeholder="Placeholder" id="first_name" name="name" type="text" class="validate" required>
                     <label for="first_name">Company Name</label>
                 </div>
             </div>
-            <button class="waves-effect waves-light btn" type="submit" id="cmp_Name">ADD</button>
+            <button class="waves-effect waves-light btn" onclick="M.toast({html: 'Company Added!', classes: 'rounded'})" type="submit" id="cmp_Name">ADD</button>
                     </div>
                 </div>
             </div>

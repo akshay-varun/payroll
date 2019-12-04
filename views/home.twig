@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+{% block title %}Payroll:Hero{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+      <section class="hero">
+            <div class="hero-inner">
+                <h1 class="center">PAYROLL MANAGEMENT SYSTEM</h1>
+                <div class="center">
+                <a class="waves-effect waves-light btn cen" href="/loginbtn">COMPANY</a>  <pre>  </pre>
+
+                <a class="waves-effect waves-light btn" href="/admin_login">ADMIN</a>
+            </div>
+            </div>
+        </section>
+
+
+{% endblock %}
+{% block script %}
+    {{ parent() }}
+{% endblock %}

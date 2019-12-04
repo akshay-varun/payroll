@@ -1,0 +1,86 @@
+{% extends "dashboard.twig" %}
+{% block title %}Payroll:Employee_Disp{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+
+    <div class="col s3">
+        <div class="row">
+            <div class="input-field col s3">
+                <i class="large material-icons prefix">search</i>
+                <input id="icon_prefix" type="text" class="validate" onkeyup="search(this.value.toUpperCase())">
+                <label for="icon_prefix">First Name</label>
+            </div>
+        </div>
+    </div>
+
+<br>
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>EMPLOYEE ID</th>
+        <th>EMPLOYEE NAME</th>
+        <th>START PERIOD</th>
+        <th>END PERIOD</th>
+        <th>STATUS</th>
+        <th>SALARY</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for  employee in details %}
+        <tr class="{{ employee.Emp_Name|class }}">
+            <td>{{ employee.Emp_ID }}</td>
+            <td class="name">{{ employee.Emp_Name }}</td>
+            <td>{{ employee.Start_Period }}</td>
+            <td>{{ employee.End_Period }}</td>
+            <td>
+                {% if employee.Status==1 %}
+                    Paid
+                {% else %}
+                    Not Paid
+                {% endif %}
+            </td>
+
+            <td>{{ employee.Salary }}</td>
+
+
+            {#            <td contenteditable='true' typeof="Date" datatype="date" ></td>#}
+            {#            <td contenteditable="true" typeof="boolean" datatype="boolean"></td>#}
+            {#            <td contenteditable="true" typeof="time" datatype="int"></td>#}
+        </tr>
+    {% endfor %}
+
+
+
+    {% endblock %}
+
+    {% block script %}
+
+    {{ parent() }}
+    <script>
+
+        const search = (keyword) => {
+            console.log('Searching for...', keyword);
+            $("td.name ").each((index, elem) => {
+                let p = $(elem).text().toUpperCase();
+                 console.log(p);
+                if (p.indexOf(keyword) > -1) {
+                    $(elem).parent().css("display", "");
+                } else {
+                    $(elem).parent().css("display", "none");
+                }
+            });
+        };
+
+    </script>
+
+{% endblock %}

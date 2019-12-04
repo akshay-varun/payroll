@@ -1,0 +1,89 @@
+{% extends "dashboard.twig" %}
+{% block title %}Payroll:Emp_Display{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    {{ parent() }}
+
+
+<table class="centered">
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Date</th>
+        <th>Present</th>
+        <th>Hours</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for employee in employees %}
+        <tr>
+            <form method="POST" action="/Emp_Disp">
+                <td>{{ employee.Emp_ID }}</td>
+                <td>{{ employee.Emp_Name }}</td>
+                <input type="hidden" name="emp-id" value="{{ employee.Emp_ID }}"/>
+                <td>
+                    <input type="date"  name="date" style="width: 250px" required>
+                </td>
+
+                <td>
+                    <div style="padding-left: 250px">
+                        <select class="browser-default" name="emp-status" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Present</option>
+                            <option value="0">Absent</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+
+                    <div class="input-field col">
+                        <input id="number" type="number" value="0" name="Hour" class="validate" style="width:100px" required>
+
+                        <label for="number">Hours</label>
+                    </div>
+                </td>
+
+                <td>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 100px">
+                        Submit
+                    </button>
+                </td>
+            </form>
+
+
+            {#            <td contenteditable='true' typeof="Date" datatype="date" ></td>#}
+            {#            <td contenteditable="true" typeof="boolean" datatype="boolean"></td>#}
+            {#            <td contenteditable="true" typeof="time" datatype="int"></td>#}
+        </tr>
+    {% endfor %}
+
+
+
+
+
+    {% endblock %}
+
+    {% block script %}
+
+    {{ parent() }}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+    <script>
+            const submitForm = (form) => {
+                form.preventDefault();
+
+            }
+    </script>
+
+{% endblock %}

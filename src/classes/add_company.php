@@ -38,4 +38,5 @@ class add_company
             error_log($e->getMessage());
         }
     }
+
 }
