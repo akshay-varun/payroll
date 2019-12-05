@@ -56,4 +56,18 @@ class perform
             error_log($e);
         }
     }
+    public function delete(int $Emp_ID)
+    {
+        try {
+            $query="delete from EMPLOYEE where Emp_ID=?";
+            $stmt=DB::getDB()->mysqlHelper->getConn()->prepare($query);
+            $stmt->bind_param('i',$Emp_ID);
+            if($stmt->execute()===false) {
+                error_log($stmt->error);
+            }
+
+        } catch (Exception $e) {
+            error_log($e);
+        }
+    }
 }

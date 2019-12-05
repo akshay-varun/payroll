@@ -449,9 +449,32 @@ try {
                 array_push($list, $row);
             }
         }
+
         $twigData = array();
         $twigData['lastPaid'] = $list;
         echo $twig->render('lastPaid.twig', $twigData);
+    });
+
+    $router->addMatch('POST', '/delete', function () {
+        global $twig;
+        $val = array();
+        $error = array();
+
+        if (isset($_POST['id'])) {
+
+            $id = Functions::escapeInput($_POST['id']);
+
+            $val['id'] = $id;
+
+            $del = new \EasyPHPApp\perform();
+            $del->delete($id);
+
+
+        } else {
+            $error['general'] = "Fill all the fields.";
+        }
+        EasyHeaders::redirect('/delete');
+
     });
 
     $router->execute();
