@@ -29,8 +29,12 @@ $twig->addFilter($makeClassFilter);
 
 try {
     $router->addMatch('GET', '/', function () use ($twig) {
-        echo $twig->render('default.twig', array('title' => 'EasyPHP-boilerplate'));
+        echo $twig->render('default.twig', array('title' => 'Welcome'));
     });
+
+//    $router->addMatch('GET','/', function () use ($twig){
+//        echo $twig->render('hone.twig', array('title'=>'Akshay'));
+//    });
 
 
     $router->addMatch('GET', '/admin_login', function () use ($twig) {
@@ -392,6 +396,8 @@ try {
         echo $twig->render('info.twig', $twigData);
     });
 
+
+
 //
 //    $router->addMatch('POST', '/update', function () {
 //        global $twig;
@@ -441,7 +447,7 @@ try {
 
     $router->addMatch('GET', '/last', function () use ($twig) {
         $db = DB::getDB();
-        $query = "select e.Emp_Name,e.Emp_ID,l.Last_Txn_ID,s.Amount from EMPLOYEE e, Last_Paid l, SALARY_DATA s where e.Emp_ID=s.Emp_ID AND s.Txn_ID=l.Last_Txn_ID";
+        $query = "select e.Emp_Name,e.Emp_ID,l.Last_Txn_ID,s.Start_Period,s.End_Period,s.Amount  from EMPLOYEE e, Last_Paid l, SALARY_DATA s where e.Emp_ID=s.Emp_ID AND s.Txn_ID=l.Last_Txn_ID;";
         $result = DB::getDB()->mysqlHelper->getConn()->query($query);
         $list = array();
         if ($result->num_rows > 0) {
@@ -449,9 +455,9 @@ try {
                 array_push($list, $row);
             }
         }
-
         $twigData = array();
-        $twigData['lastPaid'] = $list;
+        $twigData['paid'] = $list;
+        var_dump($twigData);
         echo $twig->render('lastPaid.twig', $twigData);
     });
 
