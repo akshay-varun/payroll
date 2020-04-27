@@ -37,6 +37,8 @@ class add_company
             // TODO log the error
             error_log($e->getMessage());
         }
+//        $code = $e>getCode();
+//        $message = $e->getMessage();
     }
 
 }

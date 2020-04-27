@@ -62,9 +62,9 @@ try {
         echo $twig->render('emp_delete.twig');
     });
 
-    $router->addMatch('GET', '/last', function () use ($twig) {
+/*    $router->addMatch('GET', '/last', function () use ($twig) {
         echo $twig->render('lastPaid.twig');
-    });
+    });*/
 
 
     $router->addMatch('POST', '/add_company', function () {
@@ -445,6 +445,10 @@ try {
 
     });
 
+/*    $router->addMatch('GET', '/test', function () {
+        echo 'x';
+    });*/
+
     $router->addMatch('GET', '/last', function () use ($twig) {
         $db = DB::getDB();
         $query = "select e.Emp_Name,e.Emp_ID,l.Last_Txn_ID,s.Start_Period,s.End_Period,s.Amount  from EMPLOYEE e, Last_Paid l, SALARY_DATA s where e.Emp_ID=s.Emp_ID AND s.Txn_ID=l.Last_Txn_ID;";
@@ -457,7 +461,7 @@ try {
         }
         $twigData = array();
         $twigData['paid'] = $list;
-        var_dump($twigData);
+        //  var_dump($twigData);
         echo $twig->render('lastPaid.twig', $twigData);
     });
 

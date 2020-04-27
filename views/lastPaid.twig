@@ -14,16 +14,20 @@
         <th>EMPLOYEE ID</th>
         <th>EMPLOYEE NAME</th>
         <th>Transaction ID</th>
+        <th>Start_Period</th>
+        <th>End_Period</th>
         <th>Amount</th>
     </tr>
     </thead>
 
     <tbody>
 
-    {%for  emp in paid %}
+    {%for emp in paid %}
         <td>{{ emp.Emp_ID }}</td>
         <td>{{ emp.Emp_Name}}</td>
         <td>{{ emp.Last_Txn_ID}}</td>
+        <td>{{ emp.Start_Period }}</td>
+        <td>{{ emp. End_Period }}</td>
         <td>{{ emp.Amount }}</td>
     {% endfor %}
 

@@ -35,9 +35,13 @@ class add_Employee
                 array(self::NAME_FIELD, self::EMAIL_FIELD, self::NUMBER_FIELD, self::ID_FIELD, self::SALARY_FIELD),
                 'sssid',
                 $Emp_Name, $Emp_Email,$Emp_Phone,$Admin_ID,$Salary);
+
+            if($this->db->mysqlHelper->getConn()->error) {
+                echo $this->db->mysqlHelper->getConn()->error;
+            }
         } catch (Exception $e) {
             // TODO log the error
-            error_log($e->getMessage());
+            echo $e->getMessage();
         }
     }
 }

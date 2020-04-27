@@ -45,7 +45,7 @@ class perform
     public function update_salary(int $Emp_ID, int $salary)
     {
         try {
-            $query="update EMPLOYEE set Salary=? where  Emp_ID=?";
+            $query="update EMPLOYEE set Salary=$salary where  Emp_ID=$Emp_ID";
             $stmt=DB::getDB()->mysqlHelper->getConn()->prepare($query);
             $stmt->bind_param('ii',$Emp_ID, $salary);
             if($stmt->execute()===false) {
