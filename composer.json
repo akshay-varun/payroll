@@ -6,7 +6,7 @@
         "php": ">=7.3",
         "pushkar/php-useful": "^2.0",
         "pushkar/easy-router": "^0.1.2",
-        "twig/twig": "^2.12",
+        "twig/twig": "^3.11",
         "monolog/monolog": "^2.0",
       "ext-mysql": "*"
     },
